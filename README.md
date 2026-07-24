@@ -112,4 +112,4 @@ SOC-Lab/
 
 **Leonardo Paulino**
 
-Estudiante de Seguridad Informática interesado en SOC, SIEM, Blue Team y Respuesta a Incidentes.****
+Estudiante de Seguridad Informática interesado en SOC, SIEM, Blue Team y Respuesta a Incidentes.
