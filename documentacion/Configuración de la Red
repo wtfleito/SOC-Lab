@@ -1,0 +1,75 @@
+# 🌐 Configuración de la Red
+
+## 📖 Descripción
+
+La configuración de la red virtual constituye el primer paso en la implementación del laboratorio **SOC-Lab**. En esta etapa se preparan las redes de VMware que permitirán la comunicación entre todas las máquinas virtuales y el acceso controlado a Internet mediante FortiGate.
+
+---
+
+## 🎯 Objetivo
+
+Establecer una infraestructura de red estable y organizada, donde FortiGate funcione como **gateway**, **firewall** y **servidor DHCP**, simulando el funcionamiento de una red empresarial.
+
+---
+
+## 🖥️ Redes Virtuales
+
+### 🌍 VMnet8 (WAN)
+
+| Configuración | Valor |
+|--------------|-------|
+| Tipo | NAT |
+| Función | Acceso a Internet |
+| DHCP de VMware | Habilitado |
+
+### 🔒 VMnet2 (LAN)
+
+| Configuración | Valor |
+|--------------|-------|
+| Tipo | Host-Only |
+| Red | 192.168.100.0/24 |
+| Máscara | 255.255.255.0 |
+| DHCP de VMware | Deshabilitado |
+
+> **Importante:** El servidor DHCP de VMware fue deshabilitado para que **FortiGate** sea el encargado de asignar las direcciones IP dentro de la red interna del laboratorio.
+
+---
+
+## 🗺️ Topología de Red
+
+```text
+                    🌍 Internet
+                         │
+                   VMnet8 (NAT)
+                         │
+                  ┌──────────────┐
+                  │  FortiGate   │
+                  └──────┬───────┘
+                         │
+                 VMnet2 (Host-Only)
+                         │
+ ┌─────────┬──────────┬──────────┬─────────┐
+ │         │          │          │
+Wazuh   Windows     Windows      Kali
+Server   Server        10        Linux
+```
+
+---
+
+## 🌐 Direccionamiento IP
+
+| Dispositivo | Dirección IP | Tipo |
+|-------------|--------------|------|
+| FortiGate | 192.168.100.1 | Estática |
+| Wazuh Server | 192.168.100.10 | Estática |
+| Windows Server 2022 | 192.168.100.20 | Estática |
+| Windows 10 | DHCP | Dinámica |
+| Kali Linux | DHCP | Dinámica |
+
+---
+
+## 📸 Evidencias
+
+- Configuración de VMnet8.
+- Configuración de VMnet2.
+- DHCP de VMware deshabilitado.
