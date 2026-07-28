@@ -1,75 +1,35 @@
-# 🌐 Configuración de la Red
+# Configuración de la Red
 
-## 📖 Descripción
-
-La configuración de la red virtual constituye el primer paso en la implementación del laboratorio **SOC-Lab**. En esta etapa se preparan las redes de VMware que permitirán la comunicación entre todas las máquinas virtuales y el acceso controlado a Internet mediante FortiGate.
+La configuración de la red representa el primer paso en la implementación del laboratorio **SOC-Lab**. En esta fase se define la infraestructura que permitirá la comunicación entre todas las máquinas virtuales, estableciendo una red interna segura y una salida controlada a Internet mediante **FortiGate**.
 
 ---
 
-## 🎯 Objetivo
+## Información General
 
-Establecer una infraestructura de red estable y organizada, donde FortiGate funcione como **gateway**, **firewall** y **servidor DHCP**, simulando el funcionamiento de una red empresarial.
-
----
-
-## 🖥️ Redes Virtuales
-
-### 🌍 VMnet8 (WAN)
-
-| Configuración | Valor |
-|--------------|-------|
-| Tipo | NAT |
-| Función | Acceso a Internet |
-| DHCP de VMware | Habilitado |
-
-### 🔒 VMnet2 (LAN)
-
-| Configuración | Valor |
-|--------------|-------|
-| Tipo | Host-Only |
-| Red | 192.168.100.0/24 |
-| Máscara | 255.255.255.0 |
+| Parámetro | Configuración |
+|-----------|---------------|
+| Plataforma de virtualización | VMware Workstation |
+| Red externa (WAN) | VMnet8 (NAT) |
+| Red interna (LAN) | VMnet2 (Host-Only) |
+| Rango de red | 192.168.100.0/24 |
+| Gateway | 192.168.100.1 |
+| Servidor DHCP | FortiGate |
 | DHCP de VMware | Deshabilitado |
 
-> **Importante:** El servidor DHCP de VMware fue deshabilitado para que **FortiGate** sea el encargado de asignar las direcciones IP dentro de la red interna del laboratorio.
+---
+
+## Direccionamiento IP
+
+| Dispositivo | Dirección IP | Función |
+|-------------|--------------|---------|
+| FortiGate | 192.168.100.1 | Gateway, Firewall y DHCP |
+| Wazuh Server | 192.168.100.10 | SIEM / XDR |
+| Windows Server 2022 | 192.168.100.20 | Active Directory y DNS |
+| Windows 10 | DHCP | Endpoint monitoreado |
+| Kali Linux | DHCP | Simulación de ataques |
 
 ---
 
-## 🗺️ Topología de Red
+## Evidencias
 
-```text
-                    🌍 Internet
-                         │
-                   VMnet8 (NAT)
-                         │
-                  ┌──────────────┐
-                  │  FortiGate   │
-                  └──────┬───────┘
-                         │
-                 VMnet2 (Host-Only)
-                         │
- ┌─────────┬──────────┬──────────┬─────────┐
- │         │          │          │
-Wazuh   Windows     Windows      Kali
-Server   Server        10        Linux
-```
-
----
-
-## 🌐 Direccionamiento IP
-
-| Dispositivo | Dirección IP | Tipo |
-|-------------|--------------|------|
-| FortiGate | 192.168.100.1 | Estática |
-| Wazuh Server | 192.168.100.10 | Estática |
-| Windows Server 2022 | 192.168.100.20 | Estática |
-| Windows 10 | DHCP | Dinámica |
-| Kali Linux | DHCP | Dinámica |
-
----
-
-## 📸 Evidencias
-
-- Configuración de VMnet8.
-- Configuración de VMnet2.
-- DHCP de VMware deshabilitado.
+Durante esta etapa se documentó la creación de las redes virtuales, la desactivación del servicio DHCP de VMware en la red interna y la validación de la infraestructura antes de iniciar la instalación de FortiGate.
