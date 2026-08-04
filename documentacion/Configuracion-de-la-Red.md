@@ -71,4 +71,4 @@ La siguiente captura muestra la configuración de **VMnet2**, utilizada como red
 
 ## Resultado
 
-La infraestructura de red quedó preparada correctamente, estableciendo una red interna aislada para el laboratorio y una conexión controlada a Internet mediante FortiGate. Esta configuración servirá como base para la instalación y configuración del resto de los componentes del proyecto.
+Con esta configuración se estableció la infraestructura de red que servirá como base para el laboratorio SOC-Lab. A partir de este punto, todas las máquinas virtuales se conectarán a través de FortiGate, el cual gestionará el enrutamiento, el filtrado del tráfico y la asignación de direcciones IP de la red interna.
