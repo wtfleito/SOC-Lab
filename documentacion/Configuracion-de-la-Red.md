@@ -55,7 +55,7 @@ La configuración de la red constituye la base del laboratorio **SOC-Lab**. En e
 ## Evidencias
 
 Las siguientes capturas documentan la configuración inicial de la infraestructura de red.
-
+---
 ### Configuración de VMnet8 (NAT)
 
 La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. En esta red, **VMware mantiene el servicio DHCP habilitado**, permitiendo que la interfaz WAN de FortiGate obtenga conectividad hacia redes externas.
@@ -64,7 +64,7 @@ La siguiente captura muestra la configuración de **VMnet8**, utilizada como red
 
 ---
 
-## Configuración del Editor de Red Virtual
+## Configuración de VMnet2 (Host-Only)
 
 La siguiente captura muestra la configuración de **VMnet2**, utilizada como red **Host-Only** para la comunicación entre las máquinas virtuales del laboratorio. En esta red, el **servicio DHCP de VMware fue deshabilitado** para que **FortiGate** sea el encargado de asignar las direcciones IP a los dispositivos de la red interna.
 
