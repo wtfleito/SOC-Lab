@@ -58,7 +58,7 @@ Las siguientes capturas documentan la configuración inicial de la infraestructu
 
 ### Configuración de VMnet8 (NAT)
 
-La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. Esta red será utilizada por la interfaz **WAN** de FortiGate, permitiendo la comunicación con redes externas.
+La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. En esta red, **VMware mantiene el servicio DHCP habilitado**, permitiendo que la interfaz WAN de FortiGate obtenga conectividad hacia redes externas.
 
 ![Configuración de VMnet8](../capturas/configuracion-vmnet8.png)
 
@@ -67,7 +67,7 @@ La siguiente captura muestra la configuración de **VMnet8**, utilizada como red
 
 ## Configuración del Editor de Red Virtual
 
-La siguiente imagen muestra la configuración de la red **VMnet2 (Host-Only)** utilizada como red interna del laboratorio.
+La siguiente captura muestra la configuración de **VMnet2**, utilizada como red **Host-Only** para la comunicación entre las máquinas virtuales del laboratorio. En esta red, el **servicio DHCP de VMware fue deshabilitado** para que **FortiGate** sea el encargado de asignar las direcciones IP a los dispositivos de la red interna.
 
 ![Configuración de VMnet2](../capturas/vmnet2-configuracion.png)
 
