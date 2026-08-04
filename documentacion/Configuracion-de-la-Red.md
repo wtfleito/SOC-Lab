@@ -58,9 +58,9 @@ Las siguientes capturas documentan la configuración inicial de la infraestructu
 
 ### Configuración de VMnet8 (NAT)
 
-La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. Esta red será utilizada por la interfaz **WAN** de FortiGate, permitiendo la comunicación con redes externas sin exponer directamente la infraestructura interna.
+La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. Esta red será utilizada por la interfaz **WAN** de FortiGate, permitiendo la comunicación con redes externas.
 
-![Configuración de VMnet8](../capturas/vmware/configuracion-vmnet8.png)
+![Configuración de VMnet8](../capturas/configuracion-vmnet8.png)
 
 
 ---
