@@ -62,8 +62,11 @@ Las siguientes capturas documentan la configuración inicial de la infraestructu
 
 ---
 
-### VMnet2 (Host-Only)
+## Configuración de VMnet2 (Host-Only)
 
+La siguiente imagen muestra la configuración de la red **VMnet2 (Host-Only)** utilizada como red interna del laboratorio.
+
+![Configuración de VMnet2](../capturas/vmnet2-configuracion.png)
 
 
 ---
