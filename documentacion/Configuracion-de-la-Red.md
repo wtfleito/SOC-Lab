@@ -62,7 +62,6 @@ La siguiente captura muestra la configuración de **VMnet8**, utilizada como red
 
 ![Configuración de VMnet8](../capturas/configuracion-vmnet8.png)
 
-
 ---
 
 ## Configuración del Editor de Red Virtual
@@ -70,8 +69,6 @@ La siguiente captura muestra la configuración de **VMnet8**, utilizada como red
 La siguiente captura muestra la configuración de **VMnet2**, utilizada como red **Host-Only** para la comunicación entre las máquinas virtuales del laboratorio. En esta red, el **servicio DHCP de VMware fue deshabilitado** para que **FortiGate** sea el encargado de asignar las direcciones IP a los dispositivos de la red interna.
 
 ![Configuración de VMnet2](../capturas/vmnet2-configuracion.png)
-
----
 
 ## Resultado
 
