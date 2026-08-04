@@ -71,13 +71,6 @@ La siguiente captura muestra la configuración de **VMnet2**, utilizada como red
 
 ![Configuración de VMnet2](../capturas/vmnet2-configuracion.png)
 
-
----
-
-### DHCP de VMware deshabilitado
-
-
-
 ---
 
 ## Resultado
