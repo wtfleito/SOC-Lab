@@ -1,8 +1,6 @@
 # 🛡️ FortiGate
 
-Esta carpeta contiene toda la documentación relacionada con la instalación, configuración e implementación de **FortiGate** como firewall principal del laboratorio **SOC-Lab**.
-
-FortiGate será el encargado de administrar la conectividad entre la red interna y la red externa, además de proporcionar servicios de enrutamiento, firewall, NAT y servidor DHCP para el laboratorio.
+FortiGate actuará como el firewall principal del laboratorio SOC-Lab, administrando la comunicación entre la red interna (LAN) y la red externa (WAN). Además, proporcionará servicios de enrutamiento, firewall, NAT y DHCP para simular el funcionamiento de una infraestructura empresarial.
 
 ---
 
@@ -11,9 +9,10 @@ FortiGate será el encargado de administrar la conectividad entre la red interna
 - Instalación de FortiGate
 - Configuración inicial
 - Configuración de interfaces
-- Configuración de DHCP
+- Configuración del enrutamiento
 - Configuración de NAT
-- Reglas de Firewall
+- Configuración de DHCP
+- Reglas de firewall
 - Validación de conectividad
-- Integración con Wazuh (si aplica)
-- Evidencias de configuración
+- Integración con Wazuh
+- Evidencias
