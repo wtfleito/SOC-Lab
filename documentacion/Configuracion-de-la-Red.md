@@ -57,17 +57,22 @@ La configuración de la red constituye la base del laboratorio **SOC-Lab**. En e
 Las siguientes capturas documentan la configuración inicial de la infraestructura de red.
 
 ### Configuración de VMnet8 (NAT)
+
+La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT (WAN)** del laboratorio. Esta red proporciona acceso a Internet a la máquina virtual de **FortiGate**, permitiendo la comunicación con redes externas. El servicio **DHCP de VMware** permanece habilitado en esta red para facilitar la conectividad.
+
+![Configuración de VMnet8](../capturas/red/configuracion-vmnet8.png)
+
+> **Figura 1.** Configuración de la red **VMnet8 (NAT)** utilizada como conexión WAN del laboratorio.
+
 ---
-La siguiente captura muestra la configuración de **VMnet8**, utilizada como red **NAT** para proporcionar acceso a Internet al laboratorio. En esta red, **VMware mantiene el servicio DHCP habilitado**, permitiendo que la interfaz WAN de FortiGate obtenga conectividad hacia redes externas.
 
-![Configuración de VMnet8](../capturas/configuracion-vmnet8.png)
+### Configuración de VMnet2 (Host-Only)
 
+La siguiente captura muestra la configuración de **VMnet2**, utilizada como red **Host-Only (LAN)** del laboratorio. Esta red está destinada exclusivamente a la comunicación entre las máquinas virtuales. El servicio **DHCP de VMware** fue deshabilitado para que **FortiGate** gestione la asignación de direcciones IP dentro de la red interna.
 
-## Configuración de VMnet2 (Host-Only)
----
-La siguiente captura muestra la configuración de **VMnet2**, utilizada como red **Host-Only** para la comunicación entre las máquinas virtuales del laboratorio. En esta red, el **servicio DHCP de VMware fue deshabilitado** para que **FortiGate** sea el encargado de asignar las direcciones IP a los dispositivos de la red interna.
+![Configuración de VMnet2](../capturas/red/vmnet2-configuracion.png)
 
-![Configuración de VMnet2](../capturas/vmnet2-configuracion.png)
+> **Figura 2.** Configuración de la red **VMnet2 (Host-Only)** utilizada como red interna del laboratorio.
 
 ## Resultado
 
