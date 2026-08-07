@@ -26,6 +26,12 @@ La instalación se realizará mediante la importación de la imagen **OVF de For
 
 ## 📸 Evidencias
 
+### Selección de la Imagen OVF
+
+Se seleccionó el archivo **FortiGate-VM64.ovf** correspondiente a la imagen virtual de FortiGate para iniciar su importación en VMware Workstation.
+
+---
+
 ### Importación de FortiGate en VMware
 
 *Pendiente de evidencia.*
