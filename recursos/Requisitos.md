@@ -11,7 +11,7 @@
 
 | Máquina | CPU | RAM | Disco |
 |----------|----:|----:|------:|
-| FortiGate | 2 | 2 GB | 10 GB |
+| OPNsense | 2 | 2 GB | 10 GB |
 | Ubuntu Server | 4 | 8 GB | 80 GB |
 | Windows Server 2022 | 2 | 4 GB | 60 GB |
 | Windows 10 | 2 | 4 GB | 50 GB |
