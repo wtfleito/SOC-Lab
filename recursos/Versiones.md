@@ -2,7 +2,7 @@
 
 | Herramienta | Versión |
 |-------------|----------|
-| FortiGate | Pendiente |
+| OPNsense | Pendiente |
 | Ubuntu Server | Pendiente |
 | Windows Server | Pendiente |
 | Windows 10 | Pendiente |
