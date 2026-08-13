@@ -1,55 +1,59 @@
-# 🌐 Configuración de la Red
+# 🧱 OPNsense
 
-Esta sección documenta la configuración de red utilizada para conectar los diferentes componentes del laboratorio SOC.
+Esta sección documenta la instalación y configuración de OPNsense dentro del laboratorio SOC.
 
 ## Objetivo
 
-Crear una red virtual aislada donde OPNsense actúe como gateway, firewall y servidor DHCP para los dispositivos internos.
+Implementar OPNsense como dispositivo principal de seguridad y conectividad de la red del laboratorio.
 
-## Diseño de red
+OPNsense realizará las funciones de:
 
-La infraestructura utilizará dos redes virtuales:
+* Firewall.
+* Router.
+* Gateway.
+* Servidor DHCP.
+* Control del tráfico entre la red interna e Internet.
 
-### VMnet8 — WAN
+Posteriormente se integrará Suricata para proporcionar capacidades IDS/IPS.
 
-Se utilizará como interfaz WAN de OPNsense para proporcionar acceso a Internet mediante NAT de VMware.
+## Interfaces de red
 
-### VMnet2 — LAN
-
-Se utilizará como red interna del laboratorio SOC.
-
-El servicio DHCP de VMware estará deshabilitado en esta red, ya que OPNsense será el encargado de asignar las direcciones IP.
-
-## Esquema de direccionamiento
+OPNsense utilizará dos interfaces:
 
 ```text
-Red LAN:       192.168.100.0/24
-Gateway:       192.168.100.1
-Servidor DHCP: OPNsense
+WAN → VMnet8 (NAT)
+LAN → VMnet2 (Red interna SOC)
 ```
 
-## Componentes conectados
+La interfaz LAN utilizará:
 
-* Wazuh Server
-* Windows Server 2022
-* Windows 10
-* Kali Linux
+```text
+IP: 192.168.100.1
+Máscara: /24
+```
 
-## Verificación
+## DHCP
 
-Durante la implementación se realizarán pruebas de:
+OPNsense será el servidor DHCP de la red interna.
 
-* Asignación de direcciones IP.
-* Comunicación entre los dispositivos.
-* Acceso al gateway.
-* Resolución DNS.
-* Acceso a Internet.
+Los clientes del laboratorio podrán obtener automáticamente:
+
+* Dirección IP.
+* Gateway.
+* Servidor DNS.
+
+## Firewall
+
+Se configurarán reglas para controlar el tráfico entre los dispositivos internos y la red externa.
+
+## Suricata IDS/IPS
+
+Una vez completada la configuración inicial de OPNsense, se configurará Suricata para detectar actividad sospechosa y generar alertas de seguridad.
 
 ## Evidencias
 
-Las capturas correspondientes a esta configuración se almacenarán en:
+Las capturas correspondientes a la instalación y configuración se almacenarán en:
 
 ```text
-capturas/red/
+capturas/opnsense/
 ```
-
