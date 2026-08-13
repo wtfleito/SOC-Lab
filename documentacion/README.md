@@ -7,7 +7,7 @@ Aquí se documentará la instalación, configuración, integración y funcionami
 ## Contenido
 
 - Topología del laboratorio
-- FortiGate
+- OPNsense
 - Wazuh
 - Windows Server 2022
 - Windows 10
