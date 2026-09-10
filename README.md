@@ -9,47 +9,86 @@
 
 ---
 
-# 📖 Descripción
+# 📖 Sobre el proyecto
 
-Este proyecto documenta la implementación de un laboratorio **SOC (Security Operations Center)** virtualizado, diseñado para practicar el monitoreo, detección, análisis y respuesta ante incidentes de seguridad.
+SOC-Lab es un laboratorio de ciberseguridad virtualizado creado para simular un entorno de **Security Operations Center (SOC)**.
 
-El entorno utiliza **Wazuh** como plataforma SIEM/XDR, **OPNsense** como firewall y gateway de la red, **Suricata** como IDS/IPS, **Windows Server 2022** con Active Directory, **Windows 10** como endpoint monitoreado y **Kali Linux** para realizar pruebas de seguridad controladas.
+El laboratorio está orientado al monitoreo, detección, análisis e investigación de eventos de seguridad utilizando diferentes tecnologías de seguridad integradas dentro de una misma red.
 
-Todo el proceso de instalación, configuración, integración y ejecución de los laboratorios será documentado paso a paso.
-
----
-
-# 🎯 Objetivos
-
-* Construir un entorno SOC virtualizado desde cero.
-* Implementar OPNsense como firewall, router y servidor DHCP.
-* Implementar Suricata para la detección y prevención de amenazas de red.
-* Implementar Wazuh como plataforma SIEM/XDR.
-* Configurar un entorno de Active Directory.
-* Recopilar y analizar eventos de seguridad de los endpoints.
-* Utilizar Sysmon para obtener telemetría detallada de Windows.
-* Simular actividad maliciosa de forma controlada desde Kali Linux.
-* Detectar y analizar alertas de seguridad.
-* Practicar procesos de triage e investigación de incidentes.
-* Documentar las configuraciones y laboratorios realizados.
+El entorno cuenta con un firewall, un SIEM/XDR, un IDS/IPS, endpoints y una máquina utilizada para realizar pruebas de seguridad controladas.
 
 ---
 
-# 🏗️ Arquitectura del laboratorio
+# 🧰 Componentes del laboratorio
 
-| Máquina / Componente | Sistema             | Función                               |
-| -------------------- | ------------------- | ------------------------------------- |
-| Wazuh Server         | Ubuntu Server       | SIEM / XDR                            |
-| Firewall             | OPNsense            | Firewall, Router y DHCP               |
-| IDS/IPS              | Suricata            | Detección y prevención de intrusiones |
-| Servidor             | Windows Server 2022 | Active Directory y DNS                |
-| Cliente              | Windows 10          | Endpoint monitoreado                  |
-| Telemetría           | Sysmon              | Registro avanzado de eventos          |
-| Atacante             | Kali Linux          | Simulación controlada de ataques      |
+### 🛡️ OPNsense
+
+Firewall y gateway principal de la red.
+
+Se utiliza para:
+
+- Controlar el tráfico de red.
+- Gestionar la conectividad entre la red interna e Internet.
+- Proporcionar DHCP.
+- Generar y enviar registros de eventos.
+- Integrarse con el sistema de monitoreo.
+
+### 🔎 Wazuh
+
+Plataforma principal de monitoreo y detección del laboratorio.
+
+Se utiliza para:
+
+- Recopilar eventos de seguridad.
+- Monitorear endpoints.
+- Analizar logs.
+- Detectar actividad sospechosa.
+- Generar alertas.
+- Realizar investigación de eventos.
+
+### 🚨 Suricata
+
+Sistema IDS/IPS utilizado para analizar el tráfico de red.
+
+Se utiliza para:
+
+- Detectar actividad sospechosa.
+- Identificar posibles ataques de red.
+- Generar eventos de seguridad.
+- Complementar la información obtenida por Wazuh.
+
+### 💻 Windows 10
+
+Endpoint utilizado para representar una estación de trabajo dentro del entorno.
+
+Se utiliza para:
+
+- Generar eventos de seguridad.
+- Analizar actividad del sistema.
+- Practicar detección de comportamientos sospechosos.
+- Integrarse con Wazuh.
+
+### 📊 Sysmon
+
+Herramienta utilizada para obtener telemetría detallada de Windows.
+
+Permite registrar diferentes actividades del sistema que pueden ser utilizadas durante la investigación de incidentes.
+
+### ⚔️ Kali Linux
+
+Máquina utilizada para realizar pruebas de seguridad controladas dentro del laboratorio.
+
+Se utiliza para generar diferentes tipos de actividad que posteriormente pueden ser detectados y analizados desde el entorno SOC.
+
+### 🐧 Ubuntu Server
+
+Servidor utilizado para alojar los componentes principales de Wazuh.
 
 ---
 
-# 🌐 Topología
+# 🏗️ Arquitectura
+
+El laboratorio se encuentra virtualizado mediante **VMware** y utiliza una red interna `192.168.100.0/24`.
 
 ```text
                          Internet
@@ -59,84 +98,21 @@ Todo el proceso de instalación, configuración, integración y ejecución de lo
                      ┌──────▼──────┐
                      │   OPNsense  │
                      │ Firewall    │
-                     │ Router/DHCP │
+                     │ Gateway     │
+                     │ DHCP        │
                      │ + Suricata  │
                      └──────┬──────┘
                             │
                       VMnet2 (LAN)
-                            │
-                   192.168.100.0/24
+                     192.168.100.0/24
                             │
           ┌─────────────────┼─────────────────┐
           │                 │                 │
           ▼                 ▼                 ▼
-     Wazuh Server      Windows Server      Windows 10
-     Ubuntu Server         2022            + Sysmon
-                                                  │
-                                             Kali Linux
-```
-
----
-
-# 🛠️ Tecnologías y herramientas
-
-* VMware Workstation Pro
-* OPNsense
-* Suricata
-* Wazuh
-* Ubuntu Server
-* Windows Server 2022
-* Active Directory
-* Windows 10
-* Sysmon
-* Kali Linux
-
----
-
-# 📂 Estructura del proyecto
-
-```text
-SOC-Lab/
-│
-├── documentacion/
-│   ├── red/
-│   ├── opnsense/
-│   ├── wazuh/
-│   ├── active-directory/
-│   ├── sysmon/
-│   └── suricata/
-│
-├── laboratorios/
-├── capturas/
-├── diagramas/
-├── recursos/
-│
-├── LICENSE
-└── README.md
-```
-
----
-
-# 🚀 Estado del proyecto
-
-* [x] Creación del repositorio
-* [x] Organización inicial del proyecto
-* [ ] Configuración de la red virtual
-* [ ] Instalación y configuración de OPNsense
-* [ ] Configuración del servicio DHCP
-* [ ] Configuración de Suricata IDS/IPS
-* [ ] Instalación de Wazuh
-* [ ] Configuración de Active Directory
-* [ ] Instalación y configuración de Sysmon
-* [ ] Integración de endpoints con Wazuh
-* [ ] Integración de eventos de red
-* [ ] Desarrollo de laboratorios de detección
-* [ ] Investigación y documentación de incidentes
-
----
-
-# 👨‍💻 Autor
-
-**Leonardo Paulino**
-
-Estudiante de Seguridad Informática interesado en **SOC, SIEM, Blue Team y Respuesta a Incidentes**.
+    Ubuntu Server       Windows 10        Kali Linux
+       Wazuh             + Sysmon          Security
+          │
+          └───────────────┐
+                          │
+                     Monitoreo
+                     y análisis
